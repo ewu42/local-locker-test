@@ -64,7 +64,16 @@
                         </div>
                         <div class="section">{{>nearby geocodedCoordinate}}</div>
                         <div class="section">{{>reviews}}</div> 
-                        <div class="section">{{>faqs frequentlyAskedQuestions}}</div>                        
+                        <div class="section">{{>faqs (sortBy frequentlyAskedQuestions "question")}}</div>     
+                        {{#each (sort services) }}
+                                <li> {{this}} </li>
+                        {{/each}}
+                        {{#each (sortList services false) }}
+                                <li> {{this}} </li>
+                        {{/each}}
+                        <div class="section">{{length services}}</div>
+                        <div class="section">{{compare services[0] 12}}</div>
+                        <div class="section">{{contains services "test"}}</div>
                     </div>
                 </div>
             </div>
